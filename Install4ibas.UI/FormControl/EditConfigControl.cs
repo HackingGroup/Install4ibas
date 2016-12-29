@@ -35,9 +35,9 @@ namespace Install4ibas.UI
 
         void EditConfigControl_NextEvent(object sender, EventArgs e)
         {
-            if (!this.ConnectDiSucess)
+            if (!this.ConnectDiSucess && !string.IsNullOrEmpty(this.txtB1User.Text))
                 this.butDITest_Click(sender, e);
-            if (this.ConnectDiSucess)
+            if (this.ConnectDiSucess || string.IsNullOrEmpty(this.txtB1User.Text))
                 this.ShellControl.SetCurrentControl(ControlTypes.InstallationProgress);
         }
         public override void SaveAppSetting()
