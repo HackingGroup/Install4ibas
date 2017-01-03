@@ -45,12 +45,15 @@ namespace Install4ibas.UI
         {
             try
             {
+                this.link_License.Text = "正在加载信息，请稍候。。。";
+                Application.DoEvents();
                 this.ShellControl.installService.AppSetting.UpdateLicense();
                 this.ShellControl.SetCurrentControl(ControlTypes.LicenseCreateControl);
             }
             catch (Exception error)
             {
                 MessageBox.Show(string.Format("获取网站信息生成License出错,错误如下:[{0}]", error.Message));
+                this.link_License.Text = "立即去申请License";
             }
             
         }
